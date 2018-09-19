@@ -1,0 +1,14 @@
+option java_package = "org.opennms.netmgt.rrd.tcp";
+option java_outer_classname = "PerformanceDataProtos";
+
+message PerformanceDataReading {
+  required string path = 1;
+  required string owner = 2;
+  required uint64 timestamp = 3;
+  repeated double dblValue = 4;
+  repeated string strValue = 5;
+}
+
+message PerformanceDataReadings {
+  repeated PerformanceDataReading message = 1;
+}
