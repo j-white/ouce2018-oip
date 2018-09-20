@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<scriptd-configuration>
+  <engine language="python" className="org.apache.bsf.engines.jython.JythonEngine" extensions="py"/>
+  <event-script language="python">
+	  <uei name="uei.opennms.org/internal/authentication/failure"/>import os
+from my_python_module.utils import EventForwarder
+ef = EventForwarder(bsf)
+ef.post()</event-script>
+</scriptd-configuration>
