@@ -3,7 +3,6 @@ import perf_pb2
 from twisted.internet import reactor, protocol
 
 class PerformanceDataReadingsProtocol(protocol.Protocol):
-
     def __init__(self):
         self.data = ""
 
@@ -16,11 +15,11 @@ class PerformanceDataReadingsProtocol(protocol.Protocol):
         print("Got performance data: %s" % performanceDataReadings)
 
 def main():
-    """This runs the protocol on port 8000"""
+    port = 2424
     factory = protocol.ServerFactory()
     factory.protocol = PerformanceDataReadingsProtocol
-    reactor.listenTCP(2424, factory)
-    print("Listening...")
+    reactor.listenTCP(port, factory)
+    print("Listening on TCP port %d..." % port)
     reactor.run()
 
 if __name__ == '__main__':
